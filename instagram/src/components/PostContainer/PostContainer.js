@@ -17,7 +17,7 @@ const PostContainer = ({ posts }) => {
         {posts.username}
       </h4>
       <img
-        className="ui image"
+        className="ui image rounded"
         src={posts.imageUrl}
         alt={`Pics By ${posts.username}`}
       />
@@ -26,7 +26,7 @@ const PostContainer = ({ posts }) => {
         <i className="comments outline icon" />
         <i className="image outline icon" />
       </div>
-      <p>{posts.likes} Likes</p>
+      <p className="likes">{posts.likes} Likes</p>
       {posts.comments.map(comment => (
         <CommentSection key={uuid()} comments={comment} />
       ))}
