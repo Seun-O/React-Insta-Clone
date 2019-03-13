@@ -1,10 +1,15 @@
 import React, { Component } from "react";
+import dummyData from "./dummy-data";
+import PostContainer from "./components/PostContainer/PostContainer";
+import uuid from "uuid";
 
 class App extends Component {
   render() {
     return (
       <div className="">
-        <h1>Instagram</h1>
+        {dummyData.map(el => (
+          <PostContainer key={uuid()} posts={el} />
+        ))}
       </div>
     );
   }
