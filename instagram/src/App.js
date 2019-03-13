@@ -6,7 +6,7 @@ import uuid from "uuid";
 class App extends Component {
   render() {
     return (
-      <div className="">
+      <div className="ui  fluid text container">
         {dummyData.map(el => (
           <PostContainer key={uuid()} posts={el} />
         ))}
