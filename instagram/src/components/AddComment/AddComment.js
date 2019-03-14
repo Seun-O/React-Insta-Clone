@@ -1,5 +1,6 @@
 import React from "react";
 import "./AddComment.sass";
+
 const AddComment = props => {
   const onChange = e => {
     props.commentInput(e.target.value);

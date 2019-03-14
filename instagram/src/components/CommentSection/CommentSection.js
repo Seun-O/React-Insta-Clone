@@ -1,6 +1,7 @@
 import React from "react";
 import "./CommentSection.sass";
 import "./ez.jpg";
+import PropTypes from "prop-types";
 
 const CommentSection = ({ comments }) => {
   return (
@@ -19,4 +20,7 @@ const CommentSection = ({ comments }) => {
   );
 };
 
+CommentSection.propTypes = {
+  comments: PropTypes.arrayOf(PropTypes.string)
+};
 export default CommentSection;

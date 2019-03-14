@@ -3,6 +3,7 @@ import "./PostContainer.sass";
 import CommentSection from "./../CommentSection/CommentSection";
 import uuid from "uuid";
 import AddComment from "../AddComment/AddComment";
+import PropTypes from "prop-types";
 
 class PostContainer extends Component {
   state = { oldComments: this.props.posts.comments, commentInput: "" };
@@ -58,5 +59,13 @@ class PostContainer extends Component {
     );
   }
 }
+
+PostContainer.propTypes = {
+  posts: PropTypes.shape({
+    username: PropTypes.number,
+    thumbnailUrl: PropTypes.string,
+    imageUrl: PropTypes.string
+  })
+};
 
 export default PostContainer;
