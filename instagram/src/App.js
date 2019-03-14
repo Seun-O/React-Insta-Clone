@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import dummyData from "./dummy-data";
 import PostContainer from "./components/PostContainer/PostContainer";
 import SearchBar from "./components/SearchBar/SearchBar";
-
 import uuid from "uuid";
 
 class App extends Component {
