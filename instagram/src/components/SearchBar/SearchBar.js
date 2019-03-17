@@ -2,7 +2,10 @@ import React from "react";
 import "./SearchBar.sass";
 import "./logo.png";
 
-const SearchBar = () => {
+const SearchBar = ({ value, _searchName }) => {
+  const search = e => {
+    _searchName(e.target.value);
+  };
   return (
     <React.Fragment>
       <div className="search">
@@ -11,7 +14,12 @@ const SearchBar = () => {
           <img className="logo " src={require("./logo.png")} alt="" />
         </div>
         <div className="ui icon input">
-          <input type="text" placeholder="search" />
+          <input
+            type="text"
+            placeholder="search"
+            value={value}
+            onChange={search}
+          />
           <i className="circular search link icon" />
         </div>
         <div className="icon-container">

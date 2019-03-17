@@ -1,3 +1,4 @@
+import IconSection from "../IconSection/IconSection";
 import React, { Component } from "react";
 import "./PostContainer.sass";
 import CommentSection from "./../CommentSection/CommentSection";
@@ -6,7 +7,13 @@ import AddComment from "../AddComment/AddComment";
 import PropTypes from "prop-types";
 
 class PostContainer extends Component {
-  state = { oldComments: this.props.posts.comments, commentInput: "" };
+  state = {
+    oldComments: this.props.posts.comments,
+    commentInput: "",
+    likes: this.props.posts.likes,
+    liked: false
+  };
+
   addComment = text => {
     const newComment = {
       username: "guest",
@@ -19,10 +26,20 @@ class PostContainer extends Component {
     });
     this.setState({ commentInput: "" });
   };
+
   commentInput = e => {
     this.setState({ commentInput: e });
-    console.log(this.state.commentInput);
   };
+
+  addLikes = () => {
+    this.setState(prevState => {
+      return {
+        likes: prevState.likes + 1,
+        liked: true
+      };
+    });
+  };
+
   render() {
     const posts = this.props.posts;
     return (
@@ -40,12 +57,11 @@ class PostContainer extends Component {
           src={posts.imageUrl}
           alt={`Pics By ${posts.username}`}
         />
-        <div className="icon-container">
-          <i className="heart outline icon" />
-          <i className="comments outline icon" />
-          <i className="image outline icon" />
-        </div>
-        <p className="likes">{posts.likes} Likes</p>
+        <IconSection
+          likes={this.state.likes}
+          _addLikes={this.addLikes}
+          liked={this.state.liked}
+        />
         {this.state.oldComments.map(comment => (
           <CommentSection key={uuid()} comments={comment} />
         ))}
@@ -62,7 +78,7 @@ class PostContainer extends Component {
 
 PostContainer.propTypes = {
   posts: PropTypes.shape({
-    username: PropTypes.number,
+    username: PropTypes.string,
     thumbnailUrl: PropTypes.string,
     imageUrl: PropTypes.string
   })

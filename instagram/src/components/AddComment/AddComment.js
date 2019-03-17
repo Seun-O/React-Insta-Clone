@@ -12,17 +12,17 @@ const AddComment = props => {
   };
 
   return (
-    <div className="ui action fluid input">
-      <input
-        type="text"
-        placeholder="Add a comment..."
-        onChange={onChange}
-        value={props.commentValue}
-      />
-      <button onClick={addPost} className="ui button">
-        Post
-      </button>
-    </div>
+    <form onSubmit={addPost} className="ui form">
+      <div className="ui fluid action input">
+        <input
+          type="text"
+          placeholder="Add a comment..."
+          onChange={onChange}
+          value={props.commentValue}
+        />
+        <button className="ui button">Post</button>
+      </div>
+    </form>
   );
 };
 
