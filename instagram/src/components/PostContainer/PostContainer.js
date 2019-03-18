@@ -40,6 +40,19 @@ class PostContainer extends Component {
     });
   };
 
+  // delComment = id => {
+  //   this.setState(prevState => {
+  //     return {
+  //       oldComments: prevState.oldComments.filter(comment => comment.id !== id)
+  //     };
+  //   });
+  // };
+  delComment = id => {
+    this.setState({
+      oldComments: this.state.oldComments.filter(comment => comment.id !== id)
+    });
+  };
+
   render() {
     const posts = this.props.posts;
     return (
@@ -63,7 +76,12 @@ class PostContainer extends Component {
           liked={this.state.liked}
         />
         {this.state.oldComments.map(comment => (
-          <CommentSection key={uuid()} comments={comment} />
+          <CommentSection
+            key={uuid()}
+            comments={comment}
+            delComment={this.delComment}
+            id={comment.id}
+          />
         ))}
         <div className="ui divider" />
         <AddComment
