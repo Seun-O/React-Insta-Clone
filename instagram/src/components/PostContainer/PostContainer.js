@@ -16,7 +16,7 @@ class PostContainer extends Component {
 
   addComment = text => {
     const newComment = {
-      username: "guest",
+      username: this.props.username,
       text
     };
     this.setState(prevState => {

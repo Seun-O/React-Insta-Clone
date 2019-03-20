@@ -5,7 +5,9 @@ export default function withAuthenticate(Login, PostPage) {
     state = { loggedIn: false, userNameInput: "", passwordInput: "" };
 
     getUserName = input => {
-      this.setState({ userNameInput: input });
+      this.setState({ userNameInput: input }, () => {
+        localStorage.setItem("userNameInput", this.state.userNameInput);
+      });
     };
 
     getPassword = input => {
@@ -13,13 +15,18 @@ export default function withAuthenticate(Login, PostPage) {
     };
 
     userLogin = () => {
-      this.setState({ loggedIn: true });
+      if (this.state.userNameInput === "") {
+        alert("Please Enter a Username");
+      } else {
+        this.setState({ loggedIn: true });
+      }
     };
+
     render() {
       return (
         <div>
           {this.state.loggedIn ? (
-            <PostPage />
+            <PostPage username={this.state.userNameInput} />
           ) : (
             <Login
               getUserName={this.getUserName}
@@ -31,6 +38,13 @@ export default function withAuthenticate(Login, PostPage) {
           )}
         </div>
       );
+    }
+
+    componentDidMount() {
+      if (localStorage.hasOwnProperty("userNameInput")) {
+        const user = localStorage.getItem("userNameInput");
+        this.setState({ userNameInput: user, loggedIn: true });
+      }
     }
   };
 }

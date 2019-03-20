@@ -1,4 +1,5 @@
 import React from "react";
+import "./Login.sass";
 
 const Login = props => {
   const getUsername = e => {
@@ -14,7 +15,7 @@ const Login = props => {
   };
 
   return (
-    <div className="ui middle aligned center aligned grid">
+    <div className="login ui middle aligned center aligned grid">
       <div className="column">
         <h2 className="ui teal image header">
           <div className="content">Log-in to your account</div>

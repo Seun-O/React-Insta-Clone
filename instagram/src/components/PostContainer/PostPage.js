@@ -32,7 +32,11 @@ class PostPage extends Component {
       <div className="ui  fluid text container">
         <SearchBar _searchName={this.searchName} value={this.state.search} />
         {filtered.map(el => (
-          <PostContainer key={uuid()} posts={el} />
+          <PostContainer
+            username={this.props.username}
+            key={uuid()}
+            posts={el}
+          />
         ))}
       </div>
     );
