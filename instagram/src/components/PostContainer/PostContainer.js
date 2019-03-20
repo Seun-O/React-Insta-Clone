@@ -40,16 +40,11 @@ class PostContainer extends Component {
     });
   };
 
-  // delComment = id => {
-  //   this.setState(prevState => {
-  //     return {
-  //       oldComments: prevState.oldComments.filter(comment => comment.id !== id)
-  //     };
-  //   });
-  // };
   delComment = id => {
-    this.setState({
-      oldComments: this.state.oldComments.filter(comment => comment.id !== id)
+    this.setState(prevState => {
+      return {
+        oldComments: prevState.oldComments.filter(comment => comment.id !== id)
+      };
     });
   };
 
