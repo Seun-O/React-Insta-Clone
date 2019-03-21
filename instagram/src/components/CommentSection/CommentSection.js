@@ -17,10 +17,7 @@ const CommentSection = ({ comments, delComment, id }) => {
         </div>
         <img src={require("./ez.jpg")} alt="" className="ui avatar image" />
         <div className="content">
-          <div className="header">
-            {comments.username}
-            {id}
-          </div>
+          <div className="header">{comments.username}</div>
           <div className="text">{comments.text}</div>
         </div>
       </div>

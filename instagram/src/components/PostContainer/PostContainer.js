@@ -6,6 +6,7 @@ import uuid from "uuid";
 import AddComment from "../AddComment/AddComment";
 import PropTypes from "prop-types";
 
+let commentIndex = 0;
 class PostContainer extends Component {
   state = {
     oldComments: this.props.posts.comments,
@@ -16,9 +17,11 @@ class PostContainer extends Component {
 
   addComment = text => {
     const newComment = {
+      id: `${this.props.username[0]}${(commentIndex += 1)}`,
       username: this.props.username,
       text
     };
+
     this.setState(prevState => {
       return {
         oldComments: [...prevState.oldComments, newComment]

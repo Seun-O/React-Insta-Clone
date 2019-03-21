@@ -17,7 +17,7 @@ const Login = props => {
   return (
     <div className="login ui middle aligned center aligned grid">
       <div className="column">
-        <h2 className="ui teal image header">
+        <h2 className="ui blue image header">
           <div className="content">Log-in to your account</div>
         </h2>
         <form onSubmit={UserLogin} className="ui large form">
@@ -46,7 +46,7 @@ const Login = props => {
             </div>
             <div
               onClick={UserLogin}
-              className="ui fluid large teal submit button"
+              className="ui fluid large blue submit button"
             >
               Login
             </div>

@@ -16,7 +16,7 @@ export default function withAuthenticate(Login, PostPage) {
 
     userLogin = () => {
       if (this.state.userNameInput === "") {
-        alert("Please Enter a Username");
+        alert("Please enter a username ");
       } else {
         this.setState({ loggedIn: true });
       }
