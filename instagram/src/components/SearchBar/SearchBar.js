@@ -1,18 +1,27 @@
 import React from "react";
 import "./SearchBar.sass";
 import "./logo.png";
+import styled from "styled-components";
+
+const StyledHeader = styled.header``;
+
+const LogoHeader = styled.div`
+  display: flex
+  align-items: center
+  width: 33%
+`;
 
 const SearchBar = ({ value, _searchName }) => {
   const search = e => {
     _searchName(e.target.value);
   };
   return (
-    <React.Fragment>
+    <StyledHeader>
       <div className="search">
-        <div className="logo-container">
+        <LogoHeader>
           <img className="insta " src={require("./insta.png")} alt="" />
           <img className="logo " src={require("./logo.png")} alt="" />
-        </div>
+        </LogoHeader>
         <div className="ui icon input">
           <input
             type="text"
@@ -29,7 +38,7 @@ const SearchBar = ({ value, _searchName }) => {
         </div>
       </div>
       <div className="ui divider" />
-    </React.Fragment>
+    </StyledHeader>
   );
 };
 
